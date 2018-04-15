@@ -37,20 +37,23 @@
 
     <div class="row">
       <div class="input-field col s6">
-        <select>
-          <option value="" disabled selected></option>
-          <option *ngFor="let a of areas" [value]="a">{{a}}</option>
+        <select id="area" materialize="material_select" [materializeSelectOptions]="areas">
+          <!--<option value="" disabled selected></option>-->
+          <option *ngFor="let a of areas" [value]="a.Ref">{{a.Description}}</option>
         </select>
-        <label>Область</label>
+        <label for="area">Область</label>
       </div>
     </div>
 
-    <div class="row">
-      <div class="input-field col s6">
-        <input type="text" id="autocomplete-input" class="autocomplete">
-        <label for="autocomplete-input">Autocomplete</label>
-      </div>
-    </div>
+    <!--<div class="row">-->
+      <!--<div class="input-field col s6">-->
+        <!--<select id="city" materialize="material_select" [materializeSelectOptions]="cities">-->
+          <!--&lt;!&ndash;<option value="" disabled selected></option>&ndash;&gt;-->
+          <!--<option *ngFor="let a of cities" [value]="a.Ref">{{a.Description}}</option>-->
+        <!--</select>-->
+        <!--<label for="area">Область</label>-->
+      <!--</div>-->
+    <!--</div>-->
 
 
 

@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
-import {ResponseAddress, ResponseArea, ResponseCity} from './np.interfaces/response';
+import {ResponseAddress, ResponseArea, ResponseCity} from './models/response';
 
 @Injectable()
 export class NpService {

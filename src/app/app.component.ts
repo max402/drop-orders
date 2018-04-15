@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NpService} from './np.service';
+import { Area } from './models/area.model';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {NpService} from './np.service';
 })
 export class AppComponent implements OnInit {
 
-  areas = [];
+  areas: Area[] = [];
 
   constructor(private npService: NpService) {}
 
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
       .subscribe(areas => {
         areas.data.map(area => {
           console.log(area);
-          this.areas.push(area.Description);
+          this.areas.push(area);
         });
       });
   }

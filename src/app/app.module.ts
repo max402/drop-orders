@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {MaterializeModule} from 'angular2-materialize';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    MaterializeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
