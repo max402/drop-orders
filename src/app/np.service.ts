@@ -1,6 +1,5 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {ResponseAddress, ResponseArea, ResponseCity} from './np.interfaces/response';
 
@@ -8,7 +7,6 @@ import {ResponseAddress, ResponseArea, ResponseCity} from './np.interfaces/respo
 export class NpService {
   npUrl = 'https://api.novaposhta.ua/v2.0/json/';
   apikey = 'abfd39654d60ff2d5551a9142285beaa';
-  areas$: Observable<Area[]>;
 
   constructor(private httpClient: HttpClient) {}
 
