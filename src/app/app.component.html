@@ -4,59 +4,93 @@
   </h1>
 
 
-<div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="last_name" type="text" class="validate">
-        <label for="last_name">Прізвище *</label>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Прізвище *</label>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="first_name" type="text" class="validate">
-        <label for="first_name">Ім'я *</label>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" class="validate">
+          <label for="first_name">Ім'я *</label>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="input-field col s6">
-        <input id="family_name" type="text" class="validate">
-        <label for="family_name">По батькові *</label>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="family_name" type="text" class="validate">
+          <label for="family_name">По батькові *</label>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="input-field col s6">
-        <i class="material-icons prefix">phone</i>
-        <input id="phone" type="text" class="validate">
-        <label for="phone">Телефон *</label>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input id="phone" type="text" class="validate">
+          <label for="phone">Телефон *</label>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="input-field col s6">
-        <select id="area" materialize="material_select" [materializeSelectOptions]="areas">
-          <!--<option value="" disabled selected></option>-->
-          <option *ngFor="let a of areas" [value]="a.Ref">{{a.Description}}</option>
-        </select>
-        <label for="area">Область</label>
+      <div class="row">
+        <div class="input-field col s6">
+          <select id="area" materialize="material_select" [materializeSelectOptions]="areas" onselect="onSelectArea()">
+            <!--<option value="" disabled selected></option>-->
+            <option *ngFor="let a of areas" [value]="a.Ref">{{a.Description}}</option>
+          </select>
+          <label for="area">Область</label>
+        </div>
       </div>
-    </div>
 
-    <!--<div class="row">-->
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="text" id="autocomplete-input" class="autocomplete">
+          <label for="autocomplete-input">Autocomplete</label>
+        </div>
+      </div>
+
+      <!--<mat-form-field>-->
+      <!--<input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">-->
+      <!--</mat-form-field>-->
+
+      <script>
+        $(function() {
+          $('select').material_select();
+
+          $('input.autocomplete').autocomplete({
+            data: {
+              "Apple": null,
+              "Microsoft": null,
+              "Google": 'https://placehold.it/250x250'
+            },
+            limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+            onAutocomplete: function(val) {
+              // Callback function when value is autcompleted.
+            },
+            minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+          });
+        });
+      </script>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of areas" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+
+      <!--<div class="row">-->
       <!--<div class="input-field col s6">-->
-        <!--<select id="city" materialize="material_select" [materializeSelectOptions]="cities">-->
-          <!--&lt;!&ndash;<option value="" disabled selected></option>&ndash;&gt;-->
-          <!--<option *ngFor="let a of cities" [value]="a.Ref">{{a.Description}}</option>-->
-        <!--</select>-->
-        <!--<label for="area">Область</label>-->
+      <!--<select id="city" materialize="material_select" [materializeSelectOptions]="cities">-->
+      <!--&lt;!&ndash;<option value="" disabled selected></option>&ndash;&gt;-->
+      <!--<option *ngFor="let a of cities" [value]="a.Ref">{{a.Description}}</option>-->
+      <!--</select>-->
+      <!--<label for="area">Область</label>-->
       <!--</div>-->
-    <!--</div>-->
+      <!--</div>-->
 
 
-
-  </form>
-</div>
+    </form>
+  </div>
 </div>

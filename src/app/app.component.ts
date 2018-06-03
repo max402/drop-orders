@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NpService} from './np.service';
 import { Area } from './models/area.model';
+import {City} from './models/city.model';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { Area } from './models/area.model';
 export class AppComponent implements OnInit {
 
   areas: Area[] = [];
+  cities: City[] = [];
 
   constructor(private npService: NpService) {}
 
@@ -22,6 +24,11 @@ export class AppComponent implements OnInit {
           this.areas.push(area);
         });
       });
+  }
+
+  onSelectArea() {
+    // this.npService.getCities()
+    console.log('on change area event');
   }
 
 }

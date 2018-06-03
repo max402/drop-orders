@@ -6,7 +6,7 @@ import {ResponseAddress, ResponseArea, ResponseCity} from './models/response';
 @Injectable()
 export class NpService {
   npUrl = 'https://api.novaposhta.ua/v2.0/json/';
-  apikey = 'abfd39654d60ff2d5551a9142285beaa';
+  apikey = '0dc2558314e8f3fa52ca16491b6f1c52';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -20,8 +20,9 @@ export class NpService {
     return this.httpClient.post<ResponseCity>(this.npUrl, requestBody);
   }
 
-  searchSettlements(searchString, limit) {
-    const requestBody = '{ "apiKey": "' + this.apikey + '", "modelName": "Address", "calledMethod": "searchSettlements"}';
+  searchSettlements(cityName, limit) {
+    const requestBody = '{ "apiKey": "' + this.apikey + '", "modelName": "Address", "calledMethod": "searchSettlements"},' +
+                        '"methodProperties": {"CityName": "' + cityName + '", "Limit": ' + limit + '} }';
     this.httpClient.post<ResponseAddress>(this.npUrl, requestBody);
   }
 
