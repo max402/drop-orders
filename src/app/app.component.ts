@@ -26,9 +26,9 @@ export class AppComponent implements OnInit {
       });
   }
 
-  onSelectArea() {
+  onChangeArea(newValue) {
     // this.npService.getCities()
-    console.log('on change area event');
+    console.log('on change area event:' + newValue);
   }
 
 }
