@@ -37,9 +37,9 @@
 
       <div class="row">
         <div class="input-field col s6">
-          <select id="area" materialize="material_select" [materializeSelectOptions]="areas" onselect="onSelectArea()">
+          <select id="area" [(ngModel)]="areas" materialize="material_select" onselect="onSelectArea()">
             <!--<option value="" disabled selected></option>-->
-            <option *ngFor="let a of areas" [value]="a.Ref">{{a.Description}}</option>
+            <option *ngFor="let a of areas" [ngValue]="a.Ref">{{a.Description}}</option>
           </select>
           <label for="area">Область</label>
         </div>
