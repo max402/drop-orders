@@ -6,6 +6,7 @@
 
   <div class="row">
     <form class="col s12">
+
       <div class="row">
         <div class="input-field col s6">
           <input id="last_name" type="text" class="validate">
@@ -35,13 +36,23 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" *ngIf="isLoadedAreas">
         <div class="input-field col s6">
-          <select id="area" materialize="material_select" (change)="onChangeArea($event.target.value)">
+          <select id="area" name="area" materialize="material_select" [ngModel]="areas" (ngModelChange)="onChangeArea($event)">
             <option value="" disabled selected></option>
-            <option *ngFor="let a of areas" [ngValue]="a.Ref">{{a.Description}}</option>
+            <option *ngFor="let a of areas; trackBy:trackByIdx" [value]="a.Ref">{{a.Description}}</option>
           </select>
           <label for="area">Область</label>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="isLoadedCities">
+        <div class="input-field col s6">
+          <select id="city" name="city" materialize="material_select" [ngModel]="1" (ngModelChange)="onChangeCity($event)">
+            <option value="" disabled selected></option>
+            <option *ngFor="let c of areaCities; trackByIdx" [value]="c.Ref">{{c.Description}}</option>
+          </select>
+          <label for="city">Місто</label>
         </div>
       </div>
 
