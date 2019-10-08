@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import 'rxjs/add/operator/map';
+import 'rxjs/operators';
 import {ResponseAddress, ResponseArea, ResponseCity} from './models/response';
 
 @Injectable()
